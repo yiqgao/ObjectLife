@@ -1,6 +1,6 @@
-import View, { h } from "../kernel/visual";
+import View, { g } from "../kernel/visual";
 class Test extends View {
-    constructor(props: any) {
+    constructor() {
         let state = {
             name: "teige",
             id: "0wusj37sjdnwi3",
@@ -16,24 +16,26 @@ class Test extends View {
                 { name: "teige", id: "0wusj37sjdnwi3" },
             ],
         };
+        let props = {};
         super(state, props);
         //console.log(this.state['children'])
         //console.log(this.props, this.state);
         //this.mount();
+        console.log(this.state);
     }
     render() {
-        return h(
+        return g(
             "div",
             {
                 className: "root",
             },
             [
-                h("div", {
+                g("div", {
                     className: "root",
                     text: `测试数据为${this.state.name}`,
                     event: { click: () => this.changes() },
                 }),
-                h(
+                g(
                     "div",
                     {
                         className: "root",
@@ -41,7 +43,7 @@ class Test extends View {
                         event: { click: () => this.changes() },
                     },
                     [
-                        h("div", {
+                        g("div", {
                             className: "root",
                             text: "this is number 2 level 2 number 1",
                             event: { click: () => this.changes() },
