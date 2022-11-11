@@ -1,8 +1,9 @@
 import Visual, { g } from "./kernel/visual";
 import Test from "./components/test";
 class App extends Visual {
-    constructor(props: any) {
+    constructor() {
         let state = {};
+        let props = {};
         super(state, props);
     }
     render() {

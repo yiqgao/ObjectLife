@@ -21,7 +21,7 @@ class Test extends View {
         //console.log(this.state['children'])
         //console.log(this.props, this.state);
         //this.mount();
-        console.log(this.state);
+        //console.log(this.state);
     }
     render() {
         return g(
@@ -45,7 +45,7 @@ class Test extends View {
                     [
                         g("div", {
                             className: "root",
-                            text: "this is number 2 level 2 number 1",
+                            text: "level 1 number 2",
                             event: { click: () => this.changes() },
                         }),
                     ]

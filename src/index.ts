@@ -49,10 +49,8 @@
 // view_sample.createElement('div','hello','hello')
 import "./index.scss";
 import App from "./app";
-import Visual from "./kernel/visual";
-import Test from "./components/test";
 const appRoot = document.getElementById("app");
-let a = new Test();
+let app = new App();
 if (appRoot) {
-    a.mount(appRoot);
+    app.mount(appRoot);
 }
