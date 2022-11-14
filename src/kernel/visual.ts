@@ -1,4 +1,4 @@
-import { createReactive } from "./reactive";
+import { createReactive, observe } from "./reactive";
 class Visual {
     state: any;
     props: any;
@@ -15,6 +15,7 @@ class Visual {
     private _init(state: any, props: any) {
         this.state = createReactive(state);
         this.props = createReactive(props);
+        this._observer();
     }
     mount(dom: HTMLElement) {
         this.doms = document.createElement("div");
@@ -31,6 +32,11 @@ class Visual {
         this.doms = patch(this.virtualDoms);
     }
     private _update() {}
+    private _observer() {
+        observe(() => {
+            console.log(this);
+        });
+    }
 }
 export function g(type: string, property: any, childVDoms?: any) {
     let vnode: any = { type: type };

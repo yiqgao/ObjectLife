@@ -14,7 +14,7 @@ function createProxy(data: any): any {
             //console.log("Reflect get", Reflect.ownKeys(target));
             //console.log("get", key); // 监听
             const result = Reflect.get(target, key, receiver);
-            console.log('get', key)
+            console.log("get", key, target, receiver);
             if (typeof result === "object") {
                 return createProxy(result);
             }
@@ -28,6 +28,6 @@ function createProxy(data: any): any {
     });
 }
 function observe(func: any) {
-    console.log(func);
+    func();
 }
 export { createReactive, observe };

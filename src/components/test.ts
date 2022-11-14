@@ -4,6 +4,12 @@ class Test extends View {
         let state = {
             name: "teige",
             id: "0wusj37sjdnwi3",
+            childlist: [
+                { name: "aa", value: 1 },
+                { name: "bb", value: 1 },
+                { name: "cc", value: 1 },
+                { name: "dd", value: 1 },
+            ],
             children: [
                 {
                     name: "teige",
@@ -22,6 +28,14 @@ class Test extends View {
         //console.log(this.props, this.state);
         //this.mount();
         //console.log(this.state);
+    }
+    createChild() {
+        let lis: any = [];
+        for (let item in this.state.childlist) {
+            //console.log(this.state.childlist[item]);
+            lis.push(g("div", { text: this.state.childlist[item].name }));
+        }
+        return lis;
     }
     render() {
         return g(
@@ -43,18 +57,22 @@ class Test extends View {
                         event: { click: () => this.changes() },
                     },
                     [
-                        g("div", {
-                            className: "root",
-                            text: "level 1 number 2",
-                            event: { click: () => this.changes() },
-                        }),
+                        g(
+                            "div",
+                            {
+                                className: "root",
+                                text: "level 1 number 2",
+                                event: { click: () => this.changes() },
+                            },
+                            this.createChild()
+                        ),
                     ]
                 ),
             ]
         );
     }
     changes() {
-        this.state.name = "yiqgao";
+        this.state.childlist[1].name = "yiqgao";
         //console.log(this.state);
     }
 }
