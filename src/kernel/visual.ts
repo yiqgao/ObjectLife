@@ -6,9 +6,7 @@ class Visual {
     private virtualDoms: any;
     render() {}
     beforeMount() {}
-    monuted() {
-        console.log("mount success");
-    }
+    monuted() {}
     constructor(state: any, props: any) {
         this._init(state, props);
     }
@@ -53,6 +51,11 @@ export function createElement(type: string, property: any) {
     }
     if (property["className"]) {
         dom.className = property["className"];
+    }
+    if (property["attributes"]) {
+        for (let item in property["attributes"]) {
+            dom.setAttribute(item, property["attributes"][item]);
+        }
     }
     if (property["event"]) {
         for (let item in property["event"]) {

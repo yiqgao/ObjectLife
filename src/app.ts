@@ -1,5 +1,5 @@
 import Visual, { g } from "./kernel/visual";
-import Test from "./components/test";
+import Text from './components/text'
 class App extends Visual {
     constructor() {
         let state = {};
@@ -7,7 +7,8 @@ class App extends Visual {
         super(state, props);
     }
     render() {
-        let a: any = new Test();
+        let a: any = new Text();
+        console.log(a)
         return g("div", {}, [a, g("div", { text: "this is root" })]);
     }
 }
