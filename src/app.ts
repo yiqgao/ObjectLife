@@ -8,7 +8,6 @@ class App extends Visual {
     }
     render() {
         let a: any = new Text();
-        console.log(a);
         return g("div", {}, [a]);
     }
 }

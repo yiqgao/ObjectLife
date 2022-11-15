@@ -29,7 +29,10 @@ class Visual {
     private _patch() {
         this.doms = patch(this.virtualDoms);
     }
-    private _update() {}
+    private _update() {
+        this._render();
+        this._patch();
+    }
     private _observer() {
         observe(() => {
             console.log(this);
