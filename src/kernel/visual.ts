@@ -16,7 +16,6 @@ class Visual {
         this._observer();
     }
     mount(dom: HTMLElement) {
-        this.doms = document.createElement("div");
         this.beforeMount();
         this._render();
         this._patch();
@@ -89,6 +88,7 @@ export function patch(vdom: any) {
         return a;
     }
     var virtualDom = document.createDocumentFragment();
+    let rootDom = createElement(vdom["type"], vdom["property"]);
     for (let item in vdom.childVDoms) {
         let _dom = _patch(vdom.childVDoms[item]);
         if (typeof _dom.mount === "function") {
@@ -97,6 +97,7 @@ export function patch(vdom: any) {
             virtualDom.appendChild(_dom);
         }
     }
-    return virtualDom;
+    rootDom.append(virtualDom);
+    return rootDom;
 }
 export default Visual;
