@@ -2,4 +2,36 @@
     width: 100%;
     height: 200px;
     background-color: #fbfbfa;
+    position: relative;
+}
+
+.gantt_divide_line {
+    display: inline-block;
+    width: 26px;
+    height: 100%;
+    border-right: 1px solid rgba(0, 0, 0, 0.124);
+    vertical-align: top;
+}
+
+.gantt_description_field {
+    display: inline-block;
+    height: 100%;
+    border-right: 2px solid rgba(0, 0, 0, 0.124);
+    vertical-align: top;
+}
+
+.gantt_plan_line_field {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 30px);
+}
+
+.gantt_plan_line {
+    height: 22px;
+    border-radius: 4px;
+    margin: 5px 0;
+    background-color: #4387c8;
+    //position: absolute;
 }
